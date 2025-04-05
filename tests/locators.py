@@ -9,33 +9,36 @@ class Registration:
         By.XPATH, "//label[text()='Email']/following-sibling::input[@name='name']")  # страница регистрации, поле email
     REGISTRATION_PAGE_PASSWORD = (
         By.XPATH,
-        "//label[text()='Пароль']/following-sibling::input[@name='Пароль']")  # страница регистрации, поле пароля
+        "//label[text()='Пароль']/following-sibling::input[@type='password']")  # страница регистрации, поле пароля
     REGISTRATION_PAGE_REGISTER_BUTTON = (
         By.XPATH, "//button[text()='Зарегистрироваться']")  # страница регистрации, кнопка "Зарегистрироваться"
     REGISTRATION_PAGE_INCORRECT_PASSWORD_ERROR = (
-        By.XPATH, "//*[contains(text(),'Некорректный пароль')]")  # сообщение об ошибке "Некорректный пароль"
+        By.XPATH, "//p[contains(text(),'Некорректный пароль')]")  # сообщение об ошибке "Некорректный пароль"
 
 
 class Login:
     PERSONAL_ACCOUNT = (By.LINK_TEXT, 'Личный Кабинет')  # главная страница, кнопка личного кабинета/страницы входа
-    LOGIN_EMAIL = (By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[1]/div/div/input')  # страница входа, поле email
+    LOGIN_EMAIL = (
+        By.XPATH, "//label[text()='Email']/following-sibling::input[@type='text']")  # страница входа, поле email
     LOGIN_PASSWORD = (
-        By.XPATH, '//*[@id="root"]/div/main/div/form/fieldset[2]/div/div/input')  # страница входа, поле пароля
+        By.XPATH, "//label[text()='Пароль']/following-sibling::input[@type='password']")  # страница входа, поле пароля
     LOGIN_BUTTON = (By.XPATH, "//*[contains(text(),'Войти')]")  # страница входа, кнопка входа
-    ENTER_ACCOUNT = (By.XPATH, "//button[contains(text(),'Войти в аккаунт')]")  # главная страница, фиолетовая кнопка входа в аккаунт
+    ENTER_ACCOUNT = (
+        By.XPATH, "//button[contains(text(),'Войти в аккаунт')]")  # главная страница, фиолетовая кнопка входа в аккаунт
     WHEN_LOGGED_IN_PUT_ORDER_BUTTON = (
-        By.XPATH, "//button[contains(text(),'Оформить заказ')]")  # кнопка "Оформить заказ" на главной при авторизированном аккаунте
+        By.XPATH,
+        "//button[contains(text(),'Оформить заказ')]")  # кнопка "Оформить заказ" на главной при авторизированном аккаунте
     WHEN_LOGGED_IN_PERSONAL_ACCOUNT_PAGE_SETTINGS = (
         By.XPATH,
         "//*[contains(text(), 'В этом разделе вы можете изменить свои персональные данные')]")  # надпись в личном кабинете при авторизированном аккаунте
     LOGIN_LINK = (By.XPATH,
-                  "//*[contains(text(), 'Войти')]" and '//*[@id="root"]/div/main/div/div/p/a')  # ссылка на вход на странице восстановления пароля или регистрации
+                  "//a[contains(@class, 'Auth_link__1fOlj') and text()='Войти']")  # ссылка на вход на странице восстановления пароля или регистрации
     PURPLE_LOGIN_BUTTON_ON_LOGIN_PAGE = (
         By.XPATH,
-        '//*[@id="root"]/div/main/div/form/button' and "//*[contains(text(), 'Войти')]")  # фиолетовая кнопка входа на странице логина
+        "//button[contains(@class, 'button_button__33qZ0') and text()='Войти']")  # фиолетовая кнопка входа на странице логина
     LOGOUT_BUTTON = (
         By.XPATH,
-        "//button[contains(text(),'Выход')]" and '//*[@id="root"]/div/main/div/nav/ul/li[3]/button')  # кнопка логаута
+        "//button[contains(@class, 'Account_button__14Yp3') and text()='Выход']")  # кнопка логаута
     LOGIN_PAGE_LOGIN_TEXT = (By.XPATH, "//*[contains(text(),'Вход')]")  # текст "Вход" на странице входа
 
 
@@ -63,4 +66,5 @@ class Constructor:
         By.XPATH,
         '//*[contains(text(), "Конструктор")]' and '//*[@id="root"]/div/header/nav/ul/li[1]/a/p')  # ссылка "Конструктор" в хедере
 
-    MAIN_PAGE_STELLAR_BURGERS_LOGO = (By.XPATH,'//*[@id="root"]/div/header/nav/div' and "//*[@class='AppHeader_header__logo__2D0X2']")
+    MAIN_PAGE_STELLAR_BURGERS_LOGO = (
+        By.XPATH, '//*[@id="root"]/div/header/nav/div' and "//*[@class='AppHeader_header__logo__2D0X2']")  # лого Stellar Burgers в хедере

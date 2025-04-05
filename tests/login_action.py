@@ -1,8 +1,7 @@
-import pytest
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Login
-from login_and_password_generators import CustomLogin
+from data import CustomLogin
 
 
 def login_on_login_page(chrome):

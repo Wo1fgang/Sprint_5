@@ -17,9 +17,3 @@ def generate_invalid_password():
     alphabet = string.ascii_letters + string.digits
     password = ''.join(secrets.choice(alphabet) for i in range(5))
     return password
-
-
-class CustomLogin:
-    EMAIL = 'theshift7@yandex.ru'
-    PASSWORD = '123123'
-
